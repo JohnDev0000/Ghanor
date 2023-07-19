@@ -23,4 +23,14 @@ public class NpcController {
         List<Npc> npcList = npcRepository.findAll();
         return npcList;
     }
+
+    @GetMapping("/hello")
+    public String index() {
+        return "Hello World!";
+    }
+    
+    @GetMapping("/hoge")
+    public String hoge() {
+        return "hogehoge";
+    }
 }
