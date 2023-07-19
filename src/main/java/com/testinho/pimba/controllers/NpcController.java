@@ -3,15 +3,15 @@ package com.testinho.pimba.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.testinho.pimba.entities.Npc;
 import com.testinho.pimba.repositories.NpcRepository;
 
-@Controller // define a classe como Controller
-@RequestMapping(path = "/npcs") // URL irá começar com /npcs
+@RestController // define a classe como Controller
+@RequestMapping("npcs") // URL irá começar com /npcs
 public class NpcController {
 
     @Autowired 

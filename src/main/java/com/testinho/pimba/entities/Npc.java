@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity(name = "npc")
+@Entity(name = "tb_npc")
 @Table(name = "tb_npc")
 public class Npc {
 
