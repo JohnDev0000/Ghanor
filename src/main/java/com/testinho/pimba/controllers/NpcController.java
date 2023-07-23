@@ -4,9 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.testinho.pimba.dto.NpcRequestDTO;
+import com.testinho.pimba.dto.NpcResponseDTO;
 import com.testinho.pimba.entities.Npc;
 import com.testinho.pimba.repositories.NpcRepository;
 
@@ -18,10 +22,17 @@ public class NpcController {
     private NpcRepository npcRepository;
 
     @GetMapping
-    public List<Npc> getAll() {
+    public List<NpcResponseDTO> getAll() {
 
-        List<Npc> npcList = npcRepository.findAll();
+        List<NpcResponseDTO> npcList = npcRepository.findAll().stream().map(NpcResponseDTO::new).toList();
         return npcList;
+    }
+
+    @PostMapping
+    public void saveNpc(@RequestBody NpcRequestDTO data) {
+        Npc npcData = new Npc(data);
+        npcRepository.save(npcData);
+        return;
     }
 
     @GetMapping("/hello")
